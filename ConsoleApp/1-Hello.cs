@@ -6,6 +6,11 @@ namespace KursApp
     {
         //constructor method sınıfa ait bir nesne oluşturulduğunda otomatik olarak çağırılır.
         public Hello(){
+            Print();
+        }
+
+        //void method
+        public void Print(){
             //konsol penceresinde Hello, World! yazdır.
             Console.WriteLine("Hello, World!");
         }

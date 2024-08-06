@@ -71,13 +71,49 @@ namespace KursApp
 
         }
 
-        void Print(string description, object value){
+        public void Print(string description, object value){
             Console.WriteLine($"{description}: {value}");
         }
-        void Print(string description){
+        public void Print(string description){
             Console.WriteLine();
             Console.WriteLine(description);
             Console.WriteLine("------------------------------");
+        }
+    }
+
+
+    public class ObjectAndVar
+    {
+        public ObjectAndVar(){
+            /*
+                object: Türü belirtilen bir değişken türüdür. Tür dönüşümleri (casting) gerekebilir.
+                var: Türü, atanan değere göre derleyici tarafından belirlenir.
+
+                object: Herhangi bir türdeki veriyi saklayabilir, ancak tür dönüşümü yapılmadan doğrudan türüyle kullanılamaz.
+                var: Tür güvenliğini korur ve tür dönüşümü gerektirmez, çünkü atandığı değerin türünü otomatik olarak belirler.
+
+                object: Boxing ve unboxing işlemleri performans maliyetine neden olabilir.
+                var: Tür dönüşümü gerektirmediğinden performans açısından avantajlıdır.
+
+                object, geniş bir tür yelpazesi için kullanılabilecek bir genel veri türüdür.
+                var ise tür çıkarımı yaparak kodunuzu daha temiz ve okunabilir hale getirir. 
+                    Ancak, var'ı kullanırken değişken türünü anlamak için atanan değeri incelemek gerekebilir.
+
+                Kişisel olarak object değer tipler ile, var referans tipler ile kullanımı avantajlı.
+            */
+
+            var number = 10;//doğru çalışacaktır.
+            //number = 10.5f;//tür dönüşümü gerçekleştirilemez.
+            var variable = new Variables(Days.Monday);//doğru çalışacaktır
+
+            object number2= 10;//doğru çalışacaktır. Ayrıca kullanılmadı uyarısı vermez.
+            number2 = 11.5f;//tür sonradan dönüştürüldü.
+            //number = new Variables(Days.Monday);//referans tip atanabilir. ancak kullanılamaz. number.Print() çalışmayacaktır.
+
+            variable.Print("Object ve Var farkı");
+            variable.Print("object number",number);
+            variable.Print("object number2",number2);
+            //var için sınıf ve fonksiyonlar doğru şekilde kullanılabiliyor.
         }
     }
 }
