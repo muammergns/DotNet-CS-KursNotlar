@@ -2,7 +2,30 @@ namespace KursApp
 {
     public class Conditionals
     {
+        /* Operators
+        == Eşit ise
+        >  Büyük ise
+        <  Küçük ise
+        >= Büyük veya Eşit ise
+        <= Küçük veya Eşit ise
+        <> Eşit değil ise
+
+        Operatörlerin asıl olayı bir fonksiyon olmalarıdır.
+        Bize boolean dönüş değeri verirler (true - false)
+        if belirteci true değeri alırsa kodu işler, almazsa işlemez.
+        ilerideki konularda işlenecek olan methodlara sorgu atmak içinde kullanılabilir.
+
+        && ve
+        || veya
+
+        bir kodu çalıştırmak için birden fazla koşul gerekiyorsa ve - veya (&& - ||) belirteçleri kullanılır.
+        */
+        bool isSometingOk(){
+            return true;
+        }
+
         public Conditionals(){
+
             int number = 1;
             if (number == 1)
             {
@@ -74,10 +97,89 @@ namespace KursApp
             Console.WriteLine(number7 == 1 ? "Number7 is 1" : number7 == 2 ? "Number7 is 2" : "Number7 is not 1 or 2");
             // Ternary if: number7 2'ye eşit olduğu için "Number7 is 2" yazdırılır.
 
-            //TODO - operatörler eklenecek
-            //TODO - switch case eklenecek
-            
+            bool isActive = true;
+            if (isActive)
+            {
+                //do someting...
+            }
 
+            if (isSometingOk())
+            {
+                //do someting...
+            }
+
+            if (isActive && isSometingOk())
+            {
+                // burada her iki koşulda sağlanmadan kod çalışmaz
+            }
+
+            if (isActive || isSometingOk())
+            {
+                // burada her iki koşuldan herhangi biri sağlansa bile kod çalışacaktır
+            }
+
+            bool isCond1 = false;
+            bool isCond2 = false;
+            bool isCond3 = false;
+
+            if ((isCond1 || isCond2) && isCond3)
+            {
+                // birden fazla koşul ile işlem yapılırken koşulların net bir şekilde blirtilmesi gerekir.
+                // bunun için parantez kullanımı çok önemlidir.
+            }
+
+            int number8 = 10;
+            bool number8Status = number8 == 10;
+            if (number8Status)
+            {
+                // burada karşılaştırma operatörlerinin aslında nasıl çalıştığı açıkça görülmektedir.
+            }
+
+            // alt alta her iki if bloğuda aynı işe yaramaktadır.
+            int number9 = 10;
+            if (number9 > 5 && number9 < 15)
+            {
+                
+            }
+            // if bloğunun bu şekilde kullanımının avantajı 
+            // sadece 5'ten büyük olması koşulu içinde kod çalıştırmak gerekiyorsa
+            // yukarıdaki if bloğu işimize yaramayacaktır.
+            // bunun dışında yine ileride görülecek exeption sorununu da önler.
+            // eğerki number9 < 15 karşılaştırma işlemi risk taşıyorsa bir ön koşul olarak
+            // number9 > 5 eklemek exeption sorunlarını önleyebilir.
+            if (number9 > 5)
+            {
+                if (number9 < 15)
+                {
+                    
+                }
+            }
+        }
+
+        // switch, enum ile birlikte daha okunaklı şekilde kullanılabilir.
+        // bunun dışında aynı işlemler if kullanarak rahatça yapılabilir.
+        // çokda önemli bir konu değil.
+        public void DaysOfWeek(Days day){
+            switch (day)
+            {
+                case Days.Monday:{
+                    break;
+                }  
+                case Days.Tuesday:
+                    return;
+                case Days.Wednesday:
+                    break;
+                case Days.Thursday:
+                    break;
+                case Days.Friday:
+                    break;
+                case Days.Saturday:
+                    break;
+                case Days.Sunday:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

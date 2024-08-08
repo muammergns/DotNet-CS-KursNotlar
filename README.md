@@ -7,8 +7,8 @@ Udemy Engin Demiroğ C# kursu notları
 
 - [x]  Hello World
 - [x]  Veri Tipleri
-- [ ]  Şart Blokları
-- [ ]  Metotlar
+- [x]  Şart Blokları
+- [ ]  Metodlar
 - [ ]  Diziler
 - [ ]  Döngüler
 - [ ]  String
