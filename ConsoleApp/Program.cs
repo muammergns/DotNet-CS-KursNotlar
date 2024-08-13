@@ -8,4 +8,5 @@ using KursApp;
 //new Hello();
 //new Variables(Days.Monday);
 //new ObjectAndVar();
-new Conditionals();
+//new Conditionals();
+new Arrays();
