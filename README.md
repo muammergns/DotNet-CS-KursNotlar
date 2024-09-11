@@ -9,26 +9,27 @@ Udemy Engin Demiroğ C# kursu notları
 - [x]  2-Veri Tipleri
 - [x]  3-Şart Blokları
 - [x]  4-Diziler
-- [ ]  5-Döngüler
-- [ ]  6-Operatörler
+- [x]  5-Döngüler
+- [ ]  6-Operatörler ve İfadeler
 - [ ]  7-String
-- [ ]  8-Değer ve Referans Tip
+- [ ]  8-Matematik
+- [ ]  9-Değer ve Referans Tip
 
-- [ ]  9-Sınıflar
-- [ ]  10-Metodlar
-- [ ]  11-Erişim Belirteçleri
-- [ ]  12-Interface
-- [ ]  13-Kalıtım
-- [ ]  14-Abstract
-- [ ]  15-Yapıcı Bloklar
+- [ ]  10-Sınıflar
+- [ ]  11-Metodlar
+- [ ]  12-Erişim Belirteçleri
+- [ ]  13-Interface
+- [ ]  14-Kalıtım
+- [ ]  15-Abstract
+- [ ]  16-Yapıcı Bloklar
 
-- [ ]  16-Koleksiyonlar
-- [ ]  17-Hata Yönetimi
-- [ ]  18-Generic
-- [ ]  19-Attribute
-- [ ]  20-Reflection
-- [ ]  21-Delegates
-- [ ]  22-Events
+- [ ]  17-Koleksiyonlar
+- [ ]  18-Hata Yönetimi
+- [ ]  19-Generic
+- [ ]  20-Attribute
+- [ ]  21-Reflection
+- [ ]  22-Delegates
+- [ ]  23-Events
 
 
 ## Ek Öğrenilecekler
