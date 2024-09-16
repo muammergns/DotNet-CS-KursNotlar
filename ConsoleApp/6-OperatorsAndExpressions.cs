@@ -29,7 +29,7 @@ namespace KursApp
     ||: Koşullardan birinin true olması durumunda true döner (veya).
     !: Koşulun tersini döner, true ise false yapar, false ise true yapar.
 
-    #Bit Düzeyinde Operatörler:
+    Bit Düzeyinde Operatörler:
     &: İki operandın bit düzeyinde "ve" işlemini gerçekleştirir.
     |: İki operandın bit düzeyinde "veya" işlemini gerçekleştirir.
     ^: İki operandın bit düzeyinde "özel veya" (XOR) işlemini gerçekleştirir.
@@ -44,6 +44,7 @@ namespace KursApp
     Koşul Operatörü:
     ?:: Bir koşulun doğru olup olmadığını kontrol eder ve duruma göre iki değerden birini döner (ternary operatör).
 
+    //TODO - burası için örnek yapılacak
     #Tür Dönüşüm Operatörleri:
     (type): Belirtilen türe zorunlu dönüşüm yapar.
     as: Tür dönüştürmeye çalışır, başarısız olursa null döner.
@@ -52,14 +53,15 @@ namespace KursApp
     Diğer Operatörler:
     []: Dizi elemanlarına erişmek için kullanılır.
     .: Nesne veya sınıf üyelerine erişmek için kullanılır.
+    //TODO - burası için örnek yapılacak
     #->: İşaretçi kullanırken üyelere erişmek için kullanılır.
-    #??: Eğer sol taraf null ise sağ tarafı döner.
-    #checked: Sayısal işlemlerde taşma durumlarını kontrol eder.
-    #unchecked: Sayısal işlemlerde taşma kontrolünü devre dışı bırakır.
-    #default: Bir değişkene varsayılan bir değer atar.
-    #nameof: Belirtilen değişkenin, yöntemin veya türün adını döner.
-    #sizeof: Bir türün bellek boyutunu döner.
-    #typeof: Bir türün meta verilerini döner.
+    ??: Eğer sol taraf null ise sağ tarafı döner.
+    checked: Sayısal işlemlerde taşma durumlarını kontrol eder.
+    unchecked: Sayısal işlemlerde taşma kontrolünü devre dışı bırakır.
+    default: Bir değişkene varsayılan bir değer atar.
+    nameof: Belirtilen değişkenin, yöntemin veya türün adını döner.
+    sizeof: Bir türün bellek boyutunu döner.
+    typeof: Bir türün meta verilerini döner.
     await: Bir async yöntemde asenkron bir işlemin sonucunu beklemek için kullanılır.
     yield: Bir iteratör yöntemi içinde değer döndürmek için kullanılır.
     =>: Anonim (isimsiz) bir fonksiyon tanımlamak için kullanılır.
@@ -74,8 +76,8 @@ namespace KursApp
     for: Sayısı belli olan döngüleri tekrarlamak için kullanılır; genellikle sayaçla birlikte çalışır.
     foreach: Koleksiyonlar veya dizilerdeki her bir elemanı döngüyle işlemek için kullanılır.
     while: Koşul doğru olduğu sürece döngüyü tekrarlar, döngü sayısının önceden bilinmediği durumlarda tercih edilir.
-    #break: Döngü veya switch yapısını anında sonlandırır.
-    #continue: Bir döngünün o anki iterasyonunu sonlandırır ve döngünün bir sonraki iterasyonuna geçer.
+    break: Döngü veya switch yapısını anında sonlandırır.
+    continue: Bir döngünün o anki iterasyonunu sonlandırır ve döngünün bir sonraki iterasyonuna geçer.
     goto: Program akışını, belirtilen etikete atlamak için kullanılır (nadiren önerilir).
     return: Bir metodun çalışmasını sonlandırır ve isteğe bağlı olarak bir değer döndürür.
     yield: Bir iteratör metodunda, geçici olarak bir değer döndürmek ve metodu sonraki çağrıda kaldığı yerden devam ettirmek için kullanılır.
@@ -86,6 +88,7 @@ namespace KursApp
     protected: Yalnızca tanımlandığı sınıf ve ondan türeyen sınıflardan erişilebilen üyeleri belirtir.
     internal: Sadece aynı derleme (assembly) içinde erişilebilen üyeleri belirtir.
     
+    //TODO - kurs sonunda eksik kalanlar için tekrar edilecek
     Diğer Anahtar Kelimeler:
     abstract: Soyut bir sınıf veya yöntem, doğrudan örneklenemez ve alt sınıflar tarafından miras alınabilir.
     as: Tür dönüşümü yapmak için kullanılır, dönüşüm başarısız olursa null döner.
@@ -135,17 +138,210 @@ namespace KursApp
 
     public class OperatorsAndExpressions
     {
+        //NOTE - Detaylı bilgi için
+        //LINK - https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/
         public OperatorsAndExpressions(){
             Func1();
+            Console.WriteLine("Bit Düzeyinde İşlemler:");
+            BitwiseAnd();         // Bit düzeyinde VE işlemi (&)
+            BitwiseOr();          // Bit düzeyinde VEYA işlemi (|)
+            BitwiseXor();         // Bit düzeyinde XOR işlemi (^)
+            BitwiseNot();         // Bit düzeyinde NOT işlemi (~)
+            BitwiseLeftShift();   // Bitlerin sola kaydırılması (<<)
+            BitwiseRightShift();  // Bitlerin sağa kaydırılması (>>)
+            Console.WriteLine();
+
+            Console.WriteLine("Diğer Operatörler ve İfadeler:");
+            NullCoalescing();       // Eğer değer null ise belirtilen değeri döner (null-coalescing operator ??)
+            CheckedOverflow();   // Sayısal işlemlerde taşma durumlarını kontrol eder (checked)
+            UncheckedOverflow();    // Sayısal işlemlerde taşma kontrolünü devre dışı bırakır (unchecked)
+            DefaultValue();         // Bir değişkene varsayılan bir değer atar (default)
+            NameOfOperator();       // Belirtilen değişkenin, yöntemin veya türün adını döner (nameof)
+            SizeOfOperator();       // Bir türün bellek boyutunu döner (sizeof)
+            TypeOfOperator();       // Bir türün meta verilerini döner (typeof)
+            Console.WriteLine();
+            
+            Console.WriteLine("Kontrol Deyimleri:");
+            BreakOperator();        // Döngü veya switch yapısını anında sonlandırır
+            ContinueOperator();     // Bir döngünün o anki adımı sonlandırır ve döngünün bir sonraki adımına(iterasyonuna) geçer
+            Console.WriteLine();
         }
-        void Func1(){//Artırma ve Azaltma Operatörleri
+        void Func1(){//Artırma ve Azaltma Operatörleri önce veya sonra kullanmanın etkileri
             int number=5;
             Console.WriteLine(number++);//5
             Console.WriteLine(number);//6
             Console.WriteLine(++number);//7
             Console.WriteLine(number);//7
         }
-    }
 
-    
+        // Bit düzeyinde VE işlemi (&)
+        void BitwiseAnd()
+        {
+            int a = 5; // 0b0101 (binary)
+            int b = 3; // 0b0011 (binary)
+            // a ve b'nin her bitinin VE işlemi yapılır. 
+            // Sadece her iki bit de 1 ise sonuç 1 olur.
+            int result = a & b;
+            Console.WriteLine("Bit düzeyinde VE işlemi (&)");
+            Console.WriteLine("Bitwise AND: " + result);  // Çıktı: 0b0001
+        }
+
+        // Bit düzeyinde VEYA işlemi (|)
+        void BitwiseOr()
+        {
+            int a = 5; // 0b0101 (binary)
+            int b = 3; // 0b0011 (binary)
+            // a ve b'nin her bitinin VEYA işlemi yapılır.
+            // Herhangi bir bit 1 ise sonuç 1 olur.
+            int result = a | b;
+            Console.WriteLine("Bit düzeyinde VEYA işlemi (|)");
+            Console.WriteLine("Bitwise OR: " + result);  // Çıktı: 0b0111
+        }
+
+        // Bit düzeyinde XOR işlemi (^)
+        void BitwiseXor()
+        {
+            int a = 5; // 0b0101 (binary)
+            int b = 3; // 0b0011 (binary)
+            // a ve b'nin her bitinin XOR işlemi yapılır.
+            // Eğer bitler farklıysa sonuç 1, aynıysa 0 olur.
+            int result = a ^ b;
+            Console.WriteLine("Bit düzeyinde XOR işlemi (^)");
+            Console.WriteLine("Bitwise XOR: " + result);  // Çıktı: 0b0110
+        }
+
+        // Bit düzeyinde NOT işlemi (~)
+        void BitwiseNot()
+        {
+            int a = 5; // 0b0101 (binary)
+            // a'nın bitleri ters çevrilir.
+            // 1 olan bitler 0, 0 olan bitler 1 olur. Sonuç negatif bir sayı olur.
+            int result = ~a;
+            Console.WriteLine("Bit düzeyinde NOT işlemi (~)");
+            Console.WriteLine("Bitwise NOT: " + result);  // Çıktı: 0b1010
+        }
+
+        // Bitlerin sola kaydırılması (<<)
+        void BitwiseLeftShift()
+        {
+            int a = 5; // 0b0101 (binary)
+            // a'nın bitleri 1 bit sola kaydırılır.
+            // Bu işlem, sayıyı 2 ile çarpmak anlamına gelir.
+            int result = a << 1;
+            Console.WriteLine("Bitlerin sola kaydırılması (<<)");
+            Console.WriteLine("Bitwise Left Shift: " + result);  // Çıktı: 0b1010
+        }
+
+        // Bitlerin sağa kaydırılması (>>)
+        void BitwiseRightShift()
+        {
+            int a = 5; // 0b0101 (binary)
+            // a'nın bitleri 1 bit sağa kaydırılır.
+            // Bu işlem, sayıyı 2'ye bölmek anlamına gelir.
+            int result = a >> 1;
+            Console.WriteLine("Bitlerin sağa kaydırılması (>>)");
+            Console.WriteLine("Bitwise Right Shift: " + result);  // Çıktı: 0b0010
+        }
+
+        // Eğer sol taraf null ise sağ tarafı döner (null-coalescing operator ??)
+        void NullCoalescing()
+        {
+            string? str = null; // Nullable string
+            string result = str ?? "Default Value"; // str null ise "Default Value" döner.
+            Console.WriteLine("Değerin NULL olması durumunda atama yapma:");
+            Console.WriteLine("Result: " + result);  // Çıktı: Default Value
+        }
+
+        // Sayısal işlemlerde taşma durumlarını kontrol eder (checked)
+        // Eğer checked veya unchecked kullanılmazsa varsayılan olarak debug sırasında checked, release sırasında unchecked şeklinde davranır.
+        void CheckedOverflow()
+        {
+            int maxValue = int.MaxValue;
+            // Taşma hatası olabilecek bir işlem
+            try
+            {
+                Console.Write("Checked Overflow:"); // Çıktı: Overflow Exception caught: Arithmetic operation resulted in an overflow.
+                int result = checked(maxValue + 1); // Taşma hatası meydana gelir
+            }
+            catch (System.OverflowException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        // Sayısal işlemlerde taşma kontrolünü devre dışı bırakır (unchecked)
+        void UncheckedOverflow()
+        {
+            int maxValue = int.MaxValue;
+            int result = unchecked(maxValue + 1); // Taşma kontrolü devre dışı
+            Console.Write("Kontrol Edilmemiş Taşıma:");
+            Console.WriteLine("Result: " + result);  // Çıktı: -2147483648 (taşma sonucunda)
+        }
+
+        // Bir değişkene varsayılan bir değer atar (default)
+        void DefaultValue()
+        {
+            int defaultValue = default; // int için varsayılan değer 0'dır
+            Console.Write("Varsayılan Değer Atama:");
+            Console.WriteLine("Default Value: " + defaultValue);  // Çıktı: 0
+        }
+
+        // Belirtilen değişkenin, yöntemin veya türün adını döner (nameof)
+        void NameOfOperator()
+        {
+            string variableName = nameof(NameOfOperator); // Yöntemin adı döner
+            Console.Write("Operatörün Adı:");
+            Console.WriteLine("Method Name: " + variableName);  // Çıktı: NameOfOperator
+        }
+
+        // Bir türün byte adeti bellek boyutunu döner (sizeof)
+        void SizeOfOperator()
+        {
+            int size = sizeof(int); // int türünün bellek boyutu (4 byte)
+            Console.Write("Operatör Boyutu:");
+            Console.WriteLine("Size of int: " + size + " bytes");  // Çıktı: 4 bytes
+        }
+
+        // Bir türün meta verilerini döner (typeof)
+        void TypeOfOperator()
+        {
+            Type type = typeof(int); // int türünün meta verileri
+            Console.Write("Türün Mera Verisi:");
+            Console.WriteLine("Type of int: " + type);  // Çıktı: System.Int32
+        }
+         // Döngü veya switch yapısını anında sonlandırır (break)
+         void BreakOperator()
+        {
+            Console.WriteLine("Break Operator:");
+            
+            // Basit bir döngü örneği
+            for (int i = 0; i < 10; i++)
+            {
+                if (i == 5)
+                {
+                    // i 5 olduğunda döngüyü kırar
+                    Console.WriteLine("Break at i = " + i);
+                    break;
+                }
+                Console.WriteLine("i = " + i);
+            }
+        }
+
+        // Bir döngünün o anki adımını sonlandırır ve döngünün bir sonraki adımına geçer (continue)
+        void ContinueOperator()
+        {
+            Console.WriteLine("Continue Operator:");
+            
+            // Basit bir döngü örneği
+            for (int i = 0; i < 10; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    // i çift olduğunda bu adımı atlar ve döngünün bir sonraki iterasyonuna geçer
+                    continue;
+                }
+                Console.WriteLine("i = " + i);
+            }
+        }
+    }
 }
