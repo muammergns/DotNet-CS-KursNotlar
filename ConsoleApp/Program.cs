@@ -12,4 +12,5 @@ using KursApp;
 //new Arrays();
 //new Loops();
 //new OperatorsAndExpressions();
-new Strings();
+//new Strings();
+new Mathematics();

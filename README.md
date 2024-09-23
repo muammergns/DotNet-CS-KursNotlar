@@ -11,8 +11,8 @@ Udemy Engin Demiroğ C# kursu notları
 - [x]  4-Diziler
 - [x]  5-Döngüler
 - [x]  6-Operatörler ve İfadeler
-- [ ]  7-String
-- [ ]  8-Matematik
+- [x]  7-String
+- [x]  8-Matematik
 - [ ]  9-Değer ve Referans Tip
 
 - [ ]  10-Sınıflar
