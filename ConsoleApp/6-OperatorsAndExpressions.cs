@@ -44,8 +44,7 @@ namespace KursApp
     Koşul Operatörü:
     ?:: Bir koşulun doğru olup olmadığını kontrol eder ve duruma göre iki değerden birini döner (ternary operatör).
 
-    //TODO - burası için örnek yapılacak
-    #Tür Dönüşüm Operatörleri:
+    Tür Dönüşüm Operatörleri:
     (type): Belirtilen türe zorunlu dönüşüm yapar.
     as: Tür dönüştürmeye çalışır, başarısız olursa null döner.
     is: Bir nesnenin belirtilen türe ait olup olmadığını kontrol eder.
@@ -53,8 +52,7 @@ namespace KursApp
     Diğer Operatörler:
     []: Dizi elemanlarına erişmek için kullanılır.
     .: Nesne veya sınıf üyelerine erişmek için kullanılır.
-    //TODO - burası için örnek yapılacak
-    #->: İşaretçi kullanırken üyelere erişmek için kullanılır.
+    ->: İşaretçi kullanırken üyelere erişmek için kullanılır.
     ??: Eğer sol taraf null ise sağ tarafı döner.
     checked: Sayısal işlemlerde taşma durumlarını kontrol eder.
     unchecked: Sayısal işlemlerde taşma kontrolünü devre dışı bırakır.
@@ -159,6 +157,12 @@ namespace KursApp
             NameOfOperator();       // Belirtilen değişkenin, yöntemin veya türün adını döner (nameof)
             SizeOfOperator();       // Bir türün bellek boyutunu döner (sizeof)
             TypeOfOperator();       // Bir türün meta verilerini döner (typeof)
+            TypeCastingExample();   // Bu yöntemle belirtilen türe zorunlu dönüşüm yapılır. Eğer dönüşüm başarısız olursa, çalışma zamanı hatası (exception) fırlatılır.
+            CheckTypeUsingIs("Merhaba"); // is operatörü, bir nesnenin belirtilen türde olup olmadığını kontrol eder ve başarılıysa aynı anda tür dönüşümünü gerçekleştirir.
+            CheckTypeUsingIs(12);
+            
+            CheckTypeUsingAs("Merhaba");// as operatörü, bir nesneyi belirtilen türe dönüştürmeye çalışır ve dönüşüm başarısızsa null döner.
+            CheckTypeUsingAs(12);
             Console.WriteLine();
             
             Console.WriteLine("Kontrol Deyimleri:");
@@ -308,6 +312,41 @@ namespace KursApp
             Type type = typeof(int); // int türünün meta verileri
             Console.Write("Türün Mera Verisi:");
             Console.WriteLine("Type of int: " + type);  // Çıktı: System.Int32
+        }
+        // Bu yöntemle belirtilen türe zorunlu dönüşüm yapılır. Eğer dönüşüm başarısız olursa, çalışma zamanı hatası (exception) fırlatılır. 
+        void TypeCastingExample()
+        {
+            object obj = 42; // obj tipinde bir integer değer
+            int num = (int)obj; // Zorunlu tür dönüşümü (int tipine dönüştürülüyor)
+            Console.WriteLine(num); // 42
+        }
+        // is operatörü, bir nesnenin belirtilen türde olup olmadığını kontrol eder ve başarılıysa aynı anda tür dönüşümünü gerçekleştirir.
+        void CheckTypeUsingIs(object obj)
+        {
+            if (obj is string str) 
+            {
+                Console.WriteLine($"Bu bir string: {str}");
+            }
+            else
+            {
+                Console.WriteLine($"Bu bir string değil: {obj}");
+            }
+        }
+
+
+        // as operatörü, bir nesneyi belirtilen türe dönüştürmeye çalışır ve dönüşüm başarısızsa null döner.
+        void CheckTypeUsingAs(object obj)
+        {
+            string? str = obj as string;
+
+            if (str != null)
+            {
+                Console.WriteLine("Dönüştürme başarılı: " + str);
+            }
+            else
+            {
+                Console.WriteLine($"Dönüştürme başarısız. {obj}");
+            }
         }
          // Döngü veya switch yapısını anında sonlandırır (break)
          void BreakOperator()
