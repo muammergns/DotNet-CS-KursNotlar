@@ -13,4 +13,5 @@ using KursApp;
 //new Loops();
 //new OperatorsAndExpressions();
 //new Strings();
-new Mathematics();
+//new Mathematics();
+new ValueAndReference();

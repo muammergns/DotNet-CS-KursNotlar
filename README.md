@@ -13,7 +13,7 @@ Udemy Engin Demiroğ C# kursu notları
 - [x]  6-Operatörler ve İfadeler
 - [x]  7-String
 - [x]  8-Matematik
-- [ ]  9-Değer ve Referans Tip
+- [x]  9-Değer ve Referans Tip
 
 - [ ]  10-Sınıflar
 - [ ]  11-Metodlar
@@ -22,15 +22,14 @@ Udemy Engin Demiroğ C# kursu notları
 - [ ]  14-Kalıtım
 - [ ]  15-Abstract
 - [ ]  16-Yapıcı Bloklar
-- [ ]  17-Struct
 
-- [ ]  18-Koleksiyonlar
-- [ ]  19-Hata Yönetimi
-- [ ]  20-Generic
-- [ ]  21-Attribute
-- [ ]  22-Reflection
-- [ ]  23-Delegates
-- [ ]  24-Events
+- [ ]  17-Koleksiyonlar
+- [ ]  18-Hata Yönetimi
+- [ ]  19-Generic
+- [ ]  20-Attribute
+- [ ]  21-Reflection
+- [ ]  22-Delegates
+- [ ]  23-Events
 
 
 ## Ek Öğrenilecekler
