@@ -11,4 +11,5 @@ using KursApp;
 //new Conditionals();
 //new Arrays();
 //new Loops();
-new OperatorsAndExpressions();
+//new OperatorsAndExpressions();
+new Strings();

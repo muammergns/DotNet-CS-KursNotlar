@@ -22,14 +22,15 @@ Udemy Engin Demiroğ C# kursu notları
 - [ ]  14-Kalıtım
 - [ ]  15-Abstract
 - [ ]  16-Yapıcı Bloklar
+- [ ]  17-Struct
 
-- [ ]  17-Koleksiyonlar
-- [ ]  18-Hata Yönetimi
-- [ ]  19-Generic
-- [ ]  20-Attribute
-- [ ]  21-Reflection
-- [ ]  22-Delegates
-- [ ]  23-Events
+- [ ]  18-Koleksiyonlar
+- [ ]  19-Hata Yönetimi
+- [ ]  20-Generic
+- [ ]  21-Attribute
+- [ ]  22-Reflection
+- [ ]  23-Delegates
+- [ ]  24-Events
 
 
 ## Ek Öğrenilecekler
